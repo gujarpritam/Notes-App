@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+
+import { useDispatch } from "react-redux";
+import { setPopUp } from "../../slices/popUpSlice";
 
 function NotesList() {
-  const [popUpValue, setPopUpValue] = useState(false);
-
+  const dispatch = useDispatch();
   return (
     <div
       style={{
@@ -27,8 +29,7 @@ function NotesList() {
       </h1>
       <div
         onClick={() => {
-          setPopUpValue(true);
-          window.localStorage.setItem("popUpValue", JSON.stringify(popUpValue));
+          dispatch(setPopUp());
         }}
         style={{
           background: "#16008B",
@@ -43,6 +44,7 @@ function NotesList() {
           position: "fixed",
           left: "23%",
           bottom: "50px",
+          cursor: "pointer",
         }}
       >
         +

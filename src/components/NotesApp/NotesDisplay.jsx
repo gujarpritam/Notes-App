@@ -11,7 +11,7 @@ function NotesDisplay() {
         width: "70%",
         display: "flex",
         flexDirection: "column",
-        // justifyContent: "",
+
         alignItems: "center",
       }}
     >

@@ -2,8 +2,11 @@ import React from "react";
 import NotesList from "../../components/NotesApp/NotesList";
 import NotesDisplay from "../../components/NotesApp/NotesDisplay";
 import PopUp from "../../components/NotesApp/PopUp";
+import { useSelector } from "react-redux";
 
 function NotesApp() {
+  const state = useSelector((state) => state.popUp);
+
   return (
     <div
       style={{
@@ -13,7 +16,7 @@ function NotesApp() {
         overflow: "hidden",
       }}
     >
-      {/* {popUpValue && <PopUp />} */}
+      {state.value === 1 && <PopUp />}
       <NotesList />
       <NotesDisplay />
     </div>
