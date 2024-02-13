@@ -1,7 +1,7 @@
 import React from "react";
 import NotesList from "../../components/NotesApp/NotesList";
 import NotesDisplay from "../../components/NotesApp/NotesDisplay";
-import PopUp from "../../components/NotesApp/PopUp";
+import PopUp from "../../components/NotesApp/PopUp/PopUp";
 import { useSelector } from "react-redux";
 
 function NotesApp() {

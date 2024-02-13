@@ -1,0 +1,85 @@
+.container{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.popUpBox{
+  height: 30vh;
+  width: 32vw;
+  background: white;
+  
+  position: relative;
+  /*  border: 1px solid black; */
+}
+
+.heading{
+  height: auto;
+  width: 90%;
+  /* border: 1px solid red; */
+  margin: auto;
+  margin-top: 40px;
+}
+
+.groupName{
+  height: auto;
+  width: 90%;
+  display: block;
+  /* border: 1px solid red; */
+  margin: auto;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.inputBox{
+  padding-left: 5px;
+  height: 30px;
+  width: 60%;
+  margin-left: 10px;
+  border-radius: 10px;
+  /* border: 2px solid #CCCCCC; */
+  color: #CCCCCC;
+
+}
+
+.colorBox{
+  height: auto;
+  width: 90%;
+  margin: auto;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.colorButton{
+  height: 25px;
+  width: 25px;
+border: none;
+border-radius: 50%;
+margin-left: 1%;
+/* border: "1px solid red", */
+}
+
+
+.createButton  {
+    background: #001F8B;
+    color: #FFFFFF;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
