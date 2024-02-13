@@ -1,7 +1,7 @@
 import React from "react";
-
 import { useDispatch } from "react-redux";
 import { setPopUp } from "../../slices/popUpSlice";
+import { showNote } from "../../slices/noteDisplaySlice";
 
 function NotesList() {
   const dispatch = useDispatch();
@@ -53,9 +53,14 @@ function NotesList() {
           border: "1px solid black",
         }}
       >
-        {groupList.map((groupInfo, index) => {
+        {groupList.map((groupInfo, i) => {
           return (
             <div
+              key={i}
+              id={i}
+              onClick={(e) => {
+                dispatch(showNote(e.target.id));
+              }}
               style={{
                 display: "flex",
                 height: "auto",
@@ -65,6 +70,10 @@ function NotesList() {
               }}
             >
               <div
+                id={i}
+                onClick={(e) => {
+                  dispatch(showNote(e.target.id));
+                }}
                 style={{
                   height: "45px",
                   width: "45px",
@@ -85,6 +94,10 @@ function NotesList() {
                 {groupInfo[1]}
               </div>
               <h3
+                id={i}
+                onClick={(e) => {
+                  dispatch(showNote(e.target.id));
+                }}
                 style={{
                   height: "auto",
                   width: "auto",
