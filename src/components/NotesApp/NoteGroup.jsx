@@ -4,7 +4,18 @@ import SendIcon from "../../assets/Send Icon.png";
 import EnabledSendIcon from "../../assets/Enabled Send Icon.png";
 
 function NoteGroup() {
-  const [note, setNote] = useState("");
+  let [note, setNote] = useState("");
+  let [noteObject, setNoteObject] = useState([]);
+
+  const state = useSelector((state) => state.noteDisplay);
+  let groupList, group;
+
+  if (localStorage.hasOwnProperty("groupList")) {
+    groupList = JSON.parse(localStorage.getItem("groupList"));
+  }
+
+  group = groupList[state.value];
+  console.log(group);
 
   useEffect(() => {
     if (note.trim().length > 0) {
@@ -22,15 +33,54 @@ function NoteGroup() {
         .setAttribute("style", `display: none;`);
     }
   }, [note]);
-  const state = useSelector((state) => state.noteDisplay);
-  let groupList, group;
 
-  if (localStorage.hasOwnProperty("groupList")) {
-    groupList = JSON.parse(localStorage.getItem("groupList"));
-  }
+  const notesRepo = JSON.parse(localStorage.getItem("notesRepo"));
+  const topicNotes = notesRepo[state.value];
 
-  group = groupList[state.value];
-  console.log(group);
+  const addNote = () => {
+    if (note.trim().length > 0) {
+      const d = JSON.stringify(
+        new Date().toLocaleString(undefined, { timeZone: "Asia/Kolkata" })
+      );
+
+      let dateTimeArr = d.split(",", 2);
+      console.log(dateTimeArr);
+      const dateArr = dateTimeArr[0].slice(1).split("/", 3);
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+
+      let dateTimeArr1 = dateTimeArr[1].split(" ", 3);
+      console.log(dateTimeArr1[1]);
+      console.log(dateTimeArr1[2].slice(0, 2));
+
+      noteObject.push(
+        note,
+        dateArr[1],
+        months[dateArr[0] - 1],
+        dateArr[2],
+        dateTimeArr1[1].slice(0, 5),
+        dateTimeArr1[2].slice(0, 2)
+      );
+
+      console.log(noteObject);
+
+      notesRepo[state.value].push(noteObject);
+      localStorage.setItem("notesRepo", JSON.stringify(notesRepo));
+      setNoteObject([]);
+    }
+  };
 
   return (
     <div
@@ -41,8 +91,10 @@ function NoteGroup() {
         display: "flex",
         flexDirection: "column",
         color: "black",
+
         alignItems: "center",
-        border: "2px solid red",
+        // border: "2px solid red",
+
         // overflow: "unset",
       }}
     >
@@ -51,8 +103,8 @@ function NoteGroup() {
           display: "flex",
           height: "10%",
           width: "100%",
-          margin: "0% 0% 5% 0%",
-          border: "1px solid red",
+          // margin: "0% 0% 5% 0%",
+          // border: "1px solid red",
           background: "#001F8B",
           alignItems: "center",
         }}
@@ -73,7 +125,7 @@ function NoteGroup() {
             fontWeight: "400",
             margin: "0% 3% 0% 5%",
             background: `${group[2]}`,
-            border: "1px solid black",
+            // border: "1px solid black",
           }}
         >
           {group[1]}
@@ -90,6 +142,78 @@ function NoteGroup() {
         >
           {group[0]}
         </h3>
+      </div>
+
+      <div
+        style={{
+          height: "60%",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          overflowY: "scroll",
+          // border: "2px solid black",
+        }}
+      >
+        {topicNotes.map((data, index) => {
+          return (
+            <div
+              style={{
+                height: "auto",
+                width: "90%",
+                background: "white",
+                margin: "1.5% 1.5%",
+                borderRadius: "5px",
+                boxSizing: "border-box",
+
+                boxShadow: "0px 4px 20px 0px #00000040",
+              }}
+            >
+              <div
+                style={{
+                  height: "auto",
+                  width: "100%",
+                  background: "white",
+                  // border: "1px solid black",
+                  padding: "10px",
+                  borderTopLeftRadius: "5px",
+                  borderTopRightRadius: "5px",
+                  // boxSizing: "border-box",
+                }}
+              >
+                {data[0]}
+              </div>
+              <div
+                style={{
+                  height: "auto",
+                  width: "100%",
+                  padding: "10px",
+                  background: "white",
+                  // border: "1px solid blue",
+                  borderBottomLeftRadius: "5px",
+                  borderBottomRightRadius: "5px",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  // boxSizing: "border-box",
+                  // alignItems: "center",
+                }}
+              >
+                {data[1] + " " + data[2] + " " + data[3] + "  "}
+                <span
+                  style={{
+                    height: "auto",
+                    width: "auto",
+                    color: "#353535",
+                    fontWeight: "900",
+                  }}
+                >
+                  &nbsp;&nbsp;&#x2022;&nbsp;&nbsp;
+                </span>{" "}
+                {data[4] + " " + data[5]}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div
@@ -134,7 +258,7 @@ function NoteGroup() {
         />
         <img
           onClick={() => {
-            console.log("hi");
+            addNote();
           }}
           src={EnabledSendIcon}
           id="enabledSendIcon"

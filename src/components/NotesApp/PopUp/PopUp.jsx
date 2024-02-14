@@ -24,7 +24,8 @@ function PopUp() {
     }
 
     let groupInfo = [groupName, groupInitials, groupColorCode];
-    let groupList = [];
+    let groupList = [],
+      notesRepo = [];
 
     if (localStorage.hasOwnProperty("groupList")) {
       groupList = JSON.parse(localStorage.getItem("groupList"));
@@ -32,6 +33,12 @@ function PopUp() {
     console.log(groupList);
     groupList.push(groupInfo);
     localStorage.setItem("groupList", JSON.stringify(groupList));
+
+    if (localStorage.hasOwnProperty("notesRepo")) {
+      notesRepo = JSON.parse(localStorage.getItem("notesRepo"));
+    }
+    notesRepo.push([]);
+    localStorage.setItem("notesRepo", JSON.stringify(notesRepo));
 
     dispatch(unSetPopUp());
   };
