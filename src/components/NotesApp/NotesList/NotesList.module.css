@@ -1,0 +1,77 @@
+.container{
+  height: 100%;
+  width: 30%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading{
+  background: white;
+  position: fixed;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100px;
+  width: 29%;
+  margin: auto;
+  z-index: 1;
+}
+
+.notesContainer{
+  margin-top: 100px;
+  height: auto;
+  width: 100%;
+  overflow-y: scroll;
+  scrollbar-color: #D9D9D9;
+  scrollbar-width: 10px;
+}
+
+.noteName{
+  display: flex;
+  height: auto;
+  width: 100%;
+  margin: 3% 0% 5% 0%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.noteIcon{
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: 400;
+  margin: 0% 3% 0% 5%;
+  
+}
+
+.noteHeading{
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.createNote{
+  background: #16008B;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  position: fixed;
+  left: 23%;
+  bottom: 50px;
+  cursor: pointer;
+}
