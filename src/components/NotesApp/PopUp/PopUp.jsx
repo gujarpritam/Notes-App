@@ -155,7 +155,7 @@ function PopUp() {
         </div>
         <button
           onClick={() => {
-            if (groupName.length !== 0 && groupColorCode !== null) {
+            if (groupName.trim().length !== 0 && groupColorCode !== null) {
               createGroup();
             }
           }}

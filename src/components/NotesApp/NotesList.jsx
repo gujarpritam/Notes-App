@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setPopUp } from "../../slices/popUpSlice";
 import { showNote } from "../../slices/noteDisplaySlice";
 
 function NotesList() {
   const dispatch = useDispatch();
+  const [background, setBackground] = useState(-1);
 
   let groupList = [];
   if (localStorage.hasOwnProperty("groupList")) {
     groupList = JSON.parse(localStorage.getItem("groupList"));
   }
+
+  const selectElement = (id) => {
+    if (background !== -1) {
+      document.getElementById(background).setAttribute(
+        "style",
+        `display: flex;
+        height: auto;
+        width: 100%;
+        margin: 3% 0% 5% 0%;
+        border-radius: 10px;
+        cursor: pointer;`
+      );
+    }
+    setBackground(id);
+
+    document.getElementById(id).setAttribute(
+      "style",
+      `display: flex;
+      height: auto;
+      width: 100%;
+      margin: 3% 0% 5% 0%;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #2F2F2F2B;`
+    );
+  };
 
   return (
     <div
@@ -19,7 +46,6 @@ function NotesList() {
         background: "white",
         display: "flex",
         flexDirection: "column",
-        // border: "1px solid blue",
       }}
     >
       <h1
@@ -32,8 +58,6 @@ function NotesList() {
           justifyContent: "center",
           boxSizing: "border-box",
           height: "100px",
-
-          // border: "1px solid red",
           width: "29%",
           margin: "auto",
           zIndex: "1",
@@ -50,7 +74,6 @@ function NotesList() {
           overflowY: "scroll",
           scrollbarColor: "#D9D9D9",
           scrollbarWidth: "10px",
-          border: "1px solid black",
         }}
       >
         {groupList.map((groupInfo, i) => {
@@ -59,6 +82,7 @@ function NotesList() {
               key={i}
               id={i}
               onClick={(e) => {
+                selectElement(e.target.id);
                 dispatch(showNote(e.target.id));
               }}
               style={{
@@ -66,7 +90,8 @@ function NotesList() {
                 height: "auto",
                 width: "100%",
                 margin: "3% 0% 5% 0%",
-                border: "1px solid red",
+                borderRadius: "10px",
+                cursor: "pointer",
               }}
             >
               <div
@@ -80,8 +105,6 @@ function NotesList() {
                   borderRadius: "50%",
                   border: "none",
                   color: "white",
-                  // textAlign: "center",
-                  // padding: "2% 2%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
