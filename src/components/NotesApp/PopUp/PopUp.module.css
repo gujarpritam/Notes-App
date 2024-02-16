@@ -19,7 +19,6 @@
   background: white;
   
   position: relative;
-  /*  border: 1px solid black; */
 }
 
 .heading{
@@ -46,16 +45,13 @@
   width: 60%;
   margin-left: 10px;
   border-radius: 10px;
-  /* border: 2px solid #CCCCCC; */
   color: #686767;
-
 }
 
 .colorBox{
   height: auto;
   width: 90%;
   margin: auto;
-  /* border: 2px solid red; */
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
@@ -71,7 +67,6 @@ margin-left: 1%;
 /* border: "1px solid red", */
 }
 
-
 .createButton  {
     background: #001F8B;
     color: #FFFFFF;
@@ -83,3 +78,48 @@ margin-left: 1%;
     bottom: 10px;
     right: 10px;
   }
+
+  @media (max-width:431px){
+    .popUpBox{
+      width:80vw;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .heading{   
+      margin-top: 20px;
+    }
+
+    .inputBox{
+      padding-left: 5px;
+      height: 30px;
+      width: 55%;
+      margin-left: 10px;
+      border-radius: 10px;
+      color: #686767;    
+    }
+
+    .colorButton{
+      height: 20px;
+      width: 20px;
+    }
+
+    .colorBox{
+      height: auto;
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px 0px 40px 0px;
+      font-weight: bold;
+    }
+    
+    .createButton  {
+      position: relative;
+      width: 70%;
+      border: none;     
+      bottom: 20px;     
+    }
+    }

@@ -11,8 +11,12 @@ export const noteDisplaySlice = createSlice({
     showNote: (state, action) => {
       state.value = action.payload;
     },
+
+    hideNote: (state) => {
+      state.value = -1;
+    },
   },
 });
 
-export const { showNote } = noteDisplaySlice.actions;
+export const { showNote, hideNote } = noteDisplaySlice.actions;
 export default noteDisplaySlice.reducer;

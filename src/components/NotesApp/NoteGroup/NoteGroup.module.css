@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+.backArrow{
+  display: none;
+}
+
 .headingIcon{
   height: 45px;
   width: 45px;
@@ -110,3 +114,42 @@
   bottom: 4%;
   right: 4%;
 }
+
+@media (max-width:431px){
+  .container{
+    width:100%;
+  }
+
+  .backArrow{
+    height: auto;
+    width: auto;
+    margin-left: 2%;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .headingIcon{
+    margin: 0% 3% 0% 3%;
+    
+  }
+  
+  
+  .notesContainer{
+    width: 100%;
+  }
+
+  .noteBox{
+    width: 80%;
+  }
+
+  .inputBoxContainer{
+    width: 100%;
+  }
+
+  .notesContainer{
+    height: 65%;
+  }
+  .inputBoxContainer{
+    height: 25%;
+  }
+  }

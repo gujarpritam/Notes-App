@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { hideNote } from "../../../slices/noteDisplaySlice";
 import SendIcon from "../../../assets/Send Icon.png";
 import EnabledSendIcon from "../../../assets/Enabled Send Icon.png";
+import backArrow from "../../../assets/back arrow.png";
 import NoteGroupStyle from "./NoteGroup.module.css";
 
 function NoteGroup() {
   let [note, setNote] = useState("");
   let [noteObject, setNoteObject] = useState([]);
+  const dispatch = useDispatch();
 
   const state = useSelector((state) => state.noteDisplay);
   let groupList, group;
@@ -26,7 +30,8 @@ function NoteGroup() {
         position: fixed;
         bottom: 4%;
         right: 4%;
-        display: flex;`
+        display: flex;
+        cursor: pointer;`
       );
     } else {
       document
@@ -37,6 +42,10 @@ function NoteGroup() {
 
   const notesRepo = JSON.parse(localStorage.getItem("notesRepo"));
   const topicNotes = notesRepo[state.value];
+
+  const displayHomePage = () => {
+    dispatch(hideNote());
+  };
 
   const addNote = () => {
     if (note.trim().length > 0) {
@@ -86,6 +95,11 @@ function NoteGroup() {
   return (
     <div className={NoteGroupStyle.container}>
       <div className={NoteGroupStyle.headingBox}>
+        <img
+          onClick={() => displayHomePage()}
+          src={backArrow}
+          className={NoteGroupStyle.backArrow}
+        />
         <div
           className={NoteGroupStyle.headingIcon}
           style={{

@@ -75,3 +75,17 @@
   bottom: 50px;
   cursor: pointer;
 }
+
+@media (max-width:431px){
+  .container{
+    width:100vw;
+  }
+  .heading{
+    width: 100%;
+    padding-left: 7%;
+    justify-content: flex-start;
+  }
+  .createNote{  
+    left:80% ;  
+  }
+  }
