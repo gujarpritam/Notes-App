@@ -17,10 +17,8 @@ function PopUp() {
     if (arr.length > 1) {
       groupInitials =
         arr[0].slice(0, 1).toUpperCase() + arr[1].slice(0, 1).toUpperCase();
-      console.log(groupInitials);
     } else {
       groupInitials = arr[0].slice(0, 1).toUpperCase();
-      console.log(groupInitials);
     }
 
     let groupInfo = [groupName, groupInitials, groupColorCode];
@@ -30,7 +28,6 @@ function PopUp() {
     if (localStorage.hasOwnProperty("groupList")) {
       groupList = JSON.parse(localStorage.getItem("groupList"));
     }
-    console.log(groupList);
     groupList.push(groupInfo);
     localStorage.setItem("groupList", JSON.stringify(groupList));
 

@@ -20,7 +20,6 @@ function NoteGroup() {
   }
 
   group = groupList[state.value];
-  console.log(group);
 
   useEffect(() => {
     if (note.trim().length > 0) {
@@ -54,7 +53,7 @@ function NoteGroup() {
       );
 
       let dateTimeArr = d.split(",", 2);
-      console.log(dateTimeArr);
+
       const dateArr = dateTimeArr[0].slice(1).split("/", 3);
       const months = [
         "Jan",
@@ -72,8 +71,6 @@ function NoteGroup() {
       ];
 
       let dateTimeArr1 = dateTimeArr[1].split(" ", 3);
-      console.log(dateTimeArr1[1]);
-      console.log(dateTimeArr1[2].slice(0, 2));
 
       noteObject.push(
         note,
@@ -83,8 +80,6 @@ function NoteGroup() {
         dateTimeArr1[1].slice(0, 5),
         dateTimeArr1[2].slice(0, 2)
       );
-
-      console.log(noteObject);
 
       notesRepo[state.value].push(noteObject);
       localStorage.setItem("notesRepo", JSON.stringify(notesRepo));

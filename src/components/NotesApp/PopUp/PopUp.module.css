@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 10;
   overflow: hidden;
@@ -17,14 +16,12 @@
   height: 30vh;
   width: 32vw;
   background: white;
-  
   position: relative;
 }
 
 .heading{
   height: auto;
   width: 90%;
-  /* border: 1px solid red; */
   margin: auto;
   margin-top: 40px;
 }
@@ -33,7 +30,6 @@
   height: auto;
   width: 90%;
   display: block;
-  /* border: 1px solid red; */
   margin: auto;
   margin-top: 20px;
   font-weight: bold;
@@ -64,7 +60,6 @@
 border: none;
 border-radius: 50%;
 margin-left: 1%;
-/* border: "1px solid red", */
 }
 
 .createButton  {

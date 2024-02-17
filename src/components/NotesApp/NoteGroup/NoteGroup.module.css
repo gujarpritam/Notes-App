@@ -129,13 +129,12 @@
   }
 
   .headingIcon{
-    margin: 0% 3% 0% 3%;
-    
+    margin: 0% 3% 0% 3%;    
   }
-  
-  
+    
   .notesContainer{
     width: 100%;
+    height: 65%;
   }
 
   .noteBox{
@@ -144,12 +143,7 @@
 
   .inputBoxContainer{
     width: 100%;
-  }
-
-  .notesContainer{
-    height: 65%;
-  }
-  .inputBoxContainer{
     height: 25%;
   }
+  
   }
