@@ -79,7 +79,7 @@ margin-left: 1%;
     right: 10px;
   }
 
-  @media (max-width:431px){
+  @media (max-width:533px){
     .popUpBox{
       width:80vw;
       height: auto;
@@ -122,4 +122,51 @@ margin-left: 1%;
       border: none;     
       bottom: 20px;     
     }
+    }
+
+    @media only screen and (min-width:534px) and (max-width:937px){
+      .popUpBox{
+        width:50vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .heading{   
+        margin-top: 20px;
+      }
+  
+      .inputBox{
+        padding-left: 5px;
+        height: 30px;
+        width: 55%;
+        margin-left: 10px;
+        border-radius: 10px;
+        color: #686767;    
+      }
+  
+      .colorButton{
+        height: 20px;
+        width: 20px;
+      }
+  
+      .colorBox{
+        height: auto;
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px 0px 40px 0px;
+        font-weight: bold;
+      }
+      
+      .createButton  {
+        position: relative;
+        width: 30%;
+        border: none;     
+        bottom: 20px;   
+        right: -20%;  
+      
+      }
     }
