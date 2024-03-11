@@ -48,37 +48,52 @@ function NoteGroup() {
 
   const addNote = () => {
     if (note.trim().length > 0) {
-      const d = JSON.stringify(
-        new Date().toLocaleString(undefined, { timeZone: "Asia/Kolkata" })
-      );
+      const d = Date();
+      console.log("date()", Date());
+      let dateTimeArr = d.split(" ", 5);
+      console.log(dateTimeArr);
 
-      let dateTimeArr = d.split(",", 2);
+      // console.log("date()", typeof Date());
 
-      const dateArr = dateTimeArr[0].slice(1).split("/", 3);
-      const months = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
+      // const d = JSON.stringify(
+      //   new Date().toLocaleString(undefined, { timeZone: "Asia/Kolkata" })
+      // );
 
-      let dateTimeArr1 = dateTimeArr[1].split(" ", 3);
+      // console.log("after stringify", d);
 
+      // let dateTimeArr = d.split(",", 2);
+
+      // const dateArr = dateTimeArr[0].slice(1).split("/", 3);
+      // const months = [
+      //   "Jan",
+      //   "Feb",
+      //   "Mar",
+      //   "Apr",
+      //   "May",
+      //   "Jun",
+      //   "Jul",
+      //   "Aug",
+      //   "Sep",
+      //   "Oct",
+      //   "Nov",
+      //   "Dec",
+      // ];
+
+      // let dateTimeArr1 = dateTimeArr[1].split(" ", 3);
+      const timeArr = dateTimeArr[4].split(":", 2);
+      // console.log(timeArr);
+      const hour = timeArr[0] > 12 ? timeArr[0] % 12 : timeArr[0];
+
+      const meridian = timeArr[0] > 11 ? "PM" : "AM";
+      console.log(meridian);
       noteObject.push(
         note,
-        dateArr[1],
-        months[dateArr[0] - 1],
-        dateArr[2],
-        dateTimeArr1[1].slice(0, 5),
-        dateTimeArr1[2].slice(0, 2)
+        dateTimeArr[2],
+        dateTimeArr[1],
+        dateTimeArr[3],
+        hour,
+        timeArr[1],
+        meridian
       );
 
       notesRepo[state.value].push(noteObject);
@@ -123,7 +138,7 @@ function NoteGroup() {
                 >
                   &nbsp;&nbsp;&#x2022;&nbsp;&nbsp;
                 </span>{" "}
-                {data[4] + " " + data[5]}
+                {data[4] + ":" + data[5] + " " + data[6]}
               </div>
             </div>
           );

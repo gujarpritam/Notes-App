@@ -10,7 +10,7 @@ function NotesApp() {
   const state = useSelector((state) => state.popUp);
   const state1 = useSelector((state) => state.noteDisplay);
   const isMobileScreen = useMediaQuery({ query: "(max-width: 431px)" });
-  console.log(state1.value);
+  // console.log(state1.value);
 
   return (
     <div
